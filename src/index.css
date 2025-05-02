@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.cinzel-regular {
+   font-family: "Cinzel", serif;
+   font-optical-sizing: auto;
+   font-weight: 450;
+   font-style: normal;
+ }
+.cinzel-bold {
+   font-family: "Cinzel", serif;
+   font-optical-sizing: auto;
+   font-weight: 600;
+   font-style: normal;
+ }
+.cinzel-italic {
+   font-family: "Cinzel", serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: italic;
+ } 
+ html, body {
+   overflow: hidden; 
+ }
+ 
+ .scrollbar-hidden::-webkit-scrollbar {
+   display: none;  
+ }
