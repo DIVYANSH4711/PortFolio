@@ -1,12 +1,15 @@
-import React from 'react';
-import Home from './Components/Home/Home';
-import SkillsSection from './Components/SkillsSection/SkillsSection';
-import Programming from './Components/Programming/Programming';
+
+import SkillsSection from "./Components/SkillsSection/SkillsSection.jsx"
+import Programming from "./Components/Programming/Programming.jsx"
+import Home from "./Components/Home/Home.jsx"
+import Projects from "./Components/Projects/Projects.jsx"
+
+
 function App() {
   return (
     <div className="w-full h-screen overflow-y-scroll scrollbar-hidden bg-black text-white scroll-smooth font-sans">
       {/* Navbar */}
-      <div className="fixed top-0 w-full h-12 flex justify-between items-center px-6 shadow-md z-10 border-b-1 border-zinc-600 bg-black">
+      <div className="fixed top-0 w-full h-14 flex justify-between items-center px-6 shadow-md z-20 border-b border-zinc-800 bg-black/90 backdrop-blur-sm">
         {/* Indicator dots */}
         <div className="flex space-x-2">
           <div className="w-3 h-3 bg-red-500 rounded-full shadow-sm" />
@@ -14,28 +17,28 @@ function App() {
           <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
         </div>
         {/* Navbar Links */}
-        <nav className="flex space-x-8 items-center text-sm cinzel-bold  font-medium tracking-wide">
+        <nav className="flex space-x-8 items-center text-sm cinzel-bold font-medium tracking-wide">
           <a
             href="#home"
-            className="px-2  hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-100 transition-all duration-300"
+            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-500 transition-all duration-300"
           >
             Home
           </a>
           <a
-            href="#about"
-            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-100 transition-all duration-300"
+            href="#skills"
+            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-500 transition-all duration-300"
           >
             Skills
           </a>
           <a
-            href="#projects"
-            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-100 transition-all duration-300"
+            href="#programming"
+            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-500 transition-all duration-300"
           >
-            C.P.
+            Competitive Programming
           </a>
           <a
-            href="#contact"
-            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-100 transition-all duration-300"
+            href="#projects"
+            className="px-2 py-1 hover:text-zinc-300 border-b-2 border-transparent hover:border-zinc-500 transition-all duration-300"
           >
             Projects
           </a>
@@ -43,20 +46,25 @@ function App() {
       </div>
 
       {/* Sections */}
-      <section id="home" className="flex items-center justify-center">
+      <section id="home" className="min-h-screen flex items-center justify-center border-b border-zinc-800">
         <Home />
       </section>
-      <section id="about" className="flex items-center justify-center">
-        < SkillsSection />
+      <section id="skills" className="min-h-screen flex items-center justify-center border-b border-zinc-800">
+        <SkillsSection />
       </section>
-      <section id="projects" className="flex items-center  justify-center">
+      <section id="programming" className="min-h-screen flex items-center justify-center border-b border-zinc-800">
         <Programming />
       </section>
-      <section id="contact" className="flex items-center  justify-center h-screen">
-        Projects Section
+      <section id="projects" className="min-h-screen flex items-center justify-center border-b border-zinc-800">
+        <Projects />
       </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-zinc-500 border-t border-zinc-800">
+        <p className="text-sm cinzel-regular">© {new Date().getFullYear()} Divyansh Kashyap. All rights reserved.</p>
+      </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
