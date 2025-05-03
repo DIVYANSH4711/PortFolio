@@ -28,7 +28,7 @@ function App() {
     <div className="w-full h-screen overflow-y-scroll scrollbar-hidden bg-black text-white scroll-smooth font-sans">
       {/* Navbar */}
 
-      <div className="hidden md:flex fixed top-0 w-full h-14 justify-between items-center px-6 shadow-md z-50 border-b border-zinc-800 bg-black/90 backdrop-blur-sm">
+      <div className="hidden md:flex fixed top-0 w-full md:h-14 justify-between items-center md:px-6 shadow-md z-50 border-b border-zinc-800 bg-black/90 backdrop-blur-sm">
         {/* Indicator dots */}
         <div className="flex space-x-2 py-1.5 px-2 cursor-pointer border border-transparent hover:border-zinc-700/50 rounded-sm" onClick={(prev) => setPage(!page)}>
           <div className="w-3 h-3 bg-red-500 rounded-full shadow-sm" />
