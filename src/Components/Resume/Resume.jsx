@@ -21,11 +21,11 @@ const Resume = () => {
             </div>
             <div className="flex items-center">
               <Github className="w-4 h-4 mr-1" />
-              <a href="https://github.com/divyansh-kashyap" className="hover:underline">GitHub</a>
+              <a href="https://github.com/DIVYANSH4711" className="hover:underline">GitHub</a>
             </div>
             <div className="flex items-center">
               <Linkedin className="w-4 h-4 mr-1" />
-              <a href="https://www.linkedin.com/in/divyansh-kashyap/" className="hover:underline">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/divyanshkashyap1109/" className="hover:underline">LinkedIn</a>
             </div>
           </div>
         </div>
