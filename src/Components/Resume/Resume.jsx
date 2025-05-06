@@ -1,10 +1,10 @@
 import React from "react";
 import { MapPin, Phone, Mail, ExternalLink, Github, Linkedin } from "lucide-react";
-import { div } from "framer-motion/client";
+
 
 const Resume = () => {
   return (
-    <div className="w-full mt-10 bg-black text-white ">
+    <div className="w-full mt-20 bg-black text-white ">
 
       <div className="bg-black text-white p-6 md:p-10 max-w-4xl mx-auto font-sans">
         {/* Header */}
