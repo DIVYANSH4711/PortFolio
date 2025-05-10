@@ -1,36 +1,64 @@
+import { useEffect, useState } from "react"
 import { Line } from "react-chartjs-2"
-import { joinedContests } from "../../assets/Constant"
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend } from "chart.js"
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+} from "chart.js"
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend)
 
 const CompetitiveProgramming = () => {
-  const stats = {
-    rating: 1662,
-    problemsSolved: 592,
-    contests: 39,
-  }
+  const [stats, setStats] = useState({
+    rating: 0,
+    problemsSolved: 0,
+    contests: 0,
+  })
 
-  const difficulty = {
-    easy: { solved: 251, total: 873 },
-    medium: { solved: 304, total: 1835 },
-    hard: { solved: 37, total: 827 },
-  }
+  const [difficulty, setDifficulty] = useState({
+    easy: { solved: 0, total: 873 },
+    medium: { solved: 0, total: 1835 },
+    hard: { solved: 0, total: 827 },
+  })
 
-  const contestLabels = joinedContests.map((_, index) => `${index + 1}`)
-  const ratingTrend = joinedContests.map((contest) => ({
-    solved: contest.problemsSolved,
-    total: contest.totalProblems,
-    rating: contest.rating,
-    ranking: contest.ranking,
-  }))
+  const [contestHistory, setContestHistory] = useState([])
+
+  useEffect(() => {
+    fetch("https://leetcodeapiformyportfolio.onrender.com/")
+      .then((res) => res.json())
+      .then((data) => {
+        setStats({
+          rating: Math.round(data.rating),
+          problemsSolved: data.totalSolved,
+          contests: data.attendedContest,
+        })
+
+        setDifficulty({
+          easy: { solved: data.totalEasySolved, total: 873 },
+          medium: { solved: data.totalMediumSolved, total: 1835 },
+          hard: { solved: data.totalHardSolved, total: 827 },
+        })
+
+        setContestHistory(data.contestHistory)
+      })
+      .catch((err) => {
+        console.error("Failed to fetch LeetCode stats:", err)
+      })
+  }, [])
+
+  const contestLabels = contestHistory.map((_, index) => `${index + 1}`)
+  const ratingTrend = contestHistory.map((contest) => contest.rating)
 
   const data = {
     labels: contestLabels,
     datasets: [
       {
         label: "Rating",
-        data: ratingTrend.map((contest) => contest.rating),
+        data: ratingTrend,
         fill: false,
         borderColor: "#BE5B50",
         backgroundColor: "#FBDB93",
